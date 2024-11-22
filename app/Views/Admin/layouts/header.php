@@ -128,12 +128,12 @@
                                 </form>
                             </div>
                             <div class="header-grid">
-                                <div class="header-item country">
+                                <!-- <div class="header-item country">
                                     <select class="image-select no-text">
                                         <option data-thumbnail="assets/Admin/images/country/1.png">ENG</option>
                                         <option data-thumbnail="assets/Admin/images/country/9.png">VIE</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="header-item button-dark-light">
                                     <i class="icon-moon"></i>
                                 </div>
@@ -375,8 +375,8 @@
                                                     <img src="assets/Admin/images/avatar/user-1.png" alt="">
                                                 </span>
                                                 <span class="flex flex-column">
-                                                    <span class="body-text text-main-dark">Kristin Watson</span>
-                                                    <span class="text-tiny">Sale Administrator</span>
+                                                    <!-- <span class="body-text text-main-dark"><?= $_SESSION['users']['name'] ?></span> -->
+                                                    <span class="text-tiny"> Administrator</span>
                                                 </span>
                                             </span>
                                         </button>

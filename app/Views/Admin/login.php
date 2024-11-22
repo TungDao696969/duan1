@@ -51,7 +51,14 @@
                             <h3>Login to account</h3>
                             <div class="body-text text-white">Or enter your email & password to login</div>
                         </div>
-                       
+                        <div class="error">
+                           <?php
+                            if(isset($_SESSION['error'])){
+                                echo "<p>".$_SESSION['error']."</p>";
+                                unset($_SESSION['error']);
+                            }
+                           ?> 
+                        </div>
                         <form class="form-login flex flex-column gap22 w-full"
                             action="<?= BASE_URL ?>?role=admin&act=post-login" method="post">
                             <fieldset class="email">

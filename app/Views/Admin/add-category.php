@@ -5,7 +5,7 @@
 <!--<![endif]-->
 
 
-<!-- Mirrored from themesflat.co/html/ecomus/admin-ecomus/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Nov 2024 14:58:29 GMT -->
+<!-- Mirrored from themesflat.co/html/ecomus/admin-ecomus/add-new-user.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Nov 2024 14:58:58 GMT -->
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -38,14 +38,14 @@
 
 </head>
 
-<body>
+<body class="body">
 
     <!-- #wrapper -->
     <div id="wrapper">
         <!-- #page -->
         <div id="page" class="">
             <!-- layout-wrap -->
-            <div class="layout-wrap">
+            <div class="layout-wrap loader-off">
                 <!-- preload -->
                 <div id="preload" class="preload-container">
                     <div class="preloading">
@@ -67,9 +67,49 @@
                         <div class="main-content-inner">
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
-                                <div class="wg-box">
-                                Dashboard
-                                </div>
+                                <!-- <div class="flex items-center flex-wrap justify-between gap20 mb-30">
+                                    <h3>Add New User</h3>
+                                    <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
+                                        <li>
+                                            <a href="index.html"><div class="text-tiny">Dashboard</div></a>
+                                        </li>
+                                        <li>
+                                            <i class="icon-chevron-right"></i>
+                                        </li>
+                                        <li>
+                                            <a href="#"><div class="text-tiny">User</div></a>
+                                        </li>
+                                        <li>
+                                            <i class="icon-chevron-right"></i>
+                                        </li>
+                                        <li>
+                                            <div class="text-tiny">Add New User</div>
+                                        </li>
+                                    </ul>
+                                </div> -->
+                                <!-- add-new-user -->
+                                <form action="<?= BASE_URL ?>?role=admin&act=add-post-category" class="form-add-new-user form-style-2" method="post" >
+                                    <div class="wg-box">
+                                        <?php if(isset($_SESSION['massage'])){
+                                            echo "<p>".$_SESSION['massage']."</p>";
+                                            unset($_SESSION['massage']);
+                                        }
+                                         ?>
+                                        <div class="right flex-grow">
+                                            <fieldset class="name mb-24">
+                                                <div class="body-title mb-10" for="name">Name</div>
+                                                <input class="flex-grow" type="text" id="name" placeholder="Name" name="name" tabindex="0" value="" aria-required="true" required="">
+                                            </fieldset>
+                                            
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="bot">
+                                        <button class="tf-button w180" type="submit">Them moi</button>
+                                    </div>
+
+                                </form>
+                                <!-- /add-new-user -->
                             </div>
                             <!-- /main-content-wrap -->
                         </div>
@@ -93,27 +133,12 @@
     <script src="assets/Admin/js/bootstrap.min.js"></script>
     <script src="assets/Admin/js/bootstrap-select.min.js"></script>
     <script src="assets/Admin/js/zoom.js"></script>
-    <script src="assets/Admin/js/morris.min.js"></script>
-    <script src="assets/Admin/js/raphael.min.js"></script>
-    <script src="assets/Admin/js/morris.js"></script>
-    <script src="assets/Admin/js/jvectormap.min.js"></script>
-    <script src="assets/Admin/js/jvectormap-us-lcc.js"></script>
-    <script src="assets/Admin/js/jvectormap-data.js"></script>
-    <script src="assets/Admin/js/jvectormap.js"></script>
-    <script src="assets/Admin/js/apexcharts/apexcharts.js"></script>
-    <script src="assets/Admin/js/apexcharts/line-chart-1.js"></script>
-    <script src="assets/Admin/js/apexcharts/line-chart-2.js"></script>
-    <script src="assets/Admin/js/apexcharts/line-chart-3.js"></script>
-    <script src="assets/Admin/js/apexcharts/line-chart-4.js"></script>
-    <script src="assets/Admin/js/apexcharts/line-chart-5.js"></script>
-    <script src="assets/Admin/js/apexcharts/line-chart-6.js"></script>
-    <script src="assets/Admin/js/apexcharts/line-chart-7.js"></script>
     <script src="assets/Admin/js/switcher.js"></script>
     <script defer src="assets/Admin/js/theme-settings.js"></script>
-    <script src="assets/Admin/js/main.js"></script>
+    <script defer src="assets/Admin/js/main.js"></script>
 
 </body>
 
 
-<!-- Mirrored from themesflat.co/html/ecomus/admin-ecomus/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Nov 2024 14:58:54 GMT -->
+<!-- Mirrored from themesflat.co/html/ecomus/admin-ecomus/add-new-user.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Nov 2024 14:58:58 GMT -->
 </html>
