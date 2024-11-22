@@ -67,10 +67,13 @@
                         <div class="main-content-inner">
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
-                                Dashboard
-                                <div class="wg-box">
+                            <div class="wg-box">
+                                        <?php if(isset($_SESSION['massage'])){
+                                            echo "<p>".$_SESSION['massage']."</p>";
+                                            unset($_SESSION['massage']);
+                                        } ?>
                                     <div class="title-box">
-                                        Danh sach user
+                                        Danh sach danh muc
                                     </div>
                                     <div class="flex items-center justify-between gap10 flex-wrap">
                                         <div class="wg-filter flex-grow">
@@ -94,7 +97,7 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        <a class="tf-button style-1 w208" href="add-product.html"><i class="icon-plus"></i>Add new</a>
+                                        <a class="tf-button style-1 w208" href="<?= BASE_URL ?>?role=admin&act=add-category"><i class="icon-plus"></i>Add category</a>
                                     </div>
                                     <div class="wg-table table-product-list">
                                         <ul class="table-title flex gap20 mb-14">
@@ -104,32 +107,36 @@
                                             <li>
                                                 <div class="body-title">Name</div>
                                             </li>
-                                            <li>
-                                                <div class="body-title">Email</div>
-                                            </li>
+                                            
                                             <li>
                                                 <div class="body-title">Action</div>
                                             </li>
                                            
                                         </ul>
                                         <ul class="flex flex-column">
-                                            <?php foreach($dataUsers as $key => $value):  ?>
-                                            <li class="wg-product item-row gap20">
-                                                <div class="body-text text-main-dark mt-4"><?= $key+ 1?></div>
-                                                <div class="body-text text-main-dark mt-4"><?= $value->name?></div>
-                                                <div class="body-text text-main-dark mt-4"><?= $value->email ?></div>
-                                                <div class="list-icon-function">
-                                                    <div class="item eye">
-                                                        <i class="icon-eye"></i>
+                                            <?php foreach($listCategori as $key => $value):  ?>
+                                                <li class="wg-product item-row gap20">
+                                                    <div class="body-text text-main-dark mt-4"><?= $key+ 1?></div>
+                                                    <div class="body-text text-main-dark mt-4"><?= $value->name?></div>
+                                                    <div class="list-icon-function">
+                                                        <div class="item eye">
+                                                        <a href="<?= BASE_URL ?>?role=admin&act=show-category&id=<?= $value->id ?>">
+                                                            <i class="icon-eye"></i>
+                                                        </a>
+                                                        </div>
+                                                        <div class="item edit">
+                                                           <a href="<?= BASE_URL ?>?role=admin&act=update-category&id=<?= $value->id ?>">
+                                                            <i class="icon-edit-3"></i>
+                                                           </a>
+                                                        </div>
+                                                        <div class="item trash">
+                                                            <a onclick="return confirm('Ban chac co muon xoa khong')"
+                                                             href="<?= BASE_URL ?>?role=admin&act=delete-category&id=<?= $value->id ?>">
+                                                                <i class="icon-trash-2"></i>
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                                </li>
                                             <?php endforeach; ?>
                                         </ul>
                                     </div>
@@ -155,6 +162,7 @@
                                         </ul>
                                     </div>
                                 </div>
+                               
                             </div>
                             <!-- /main-content-wrap -->
                         </div>
