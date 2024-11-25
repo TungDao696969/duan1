@@ -44,7 +44,7 @@
                     header("Location: " . BASE_URL . "?role=admin&act=add-category");
                     exit;
                 }
-            } else {
+            }else {
                 header("Location: " . BASE_URL . "?role=admin&act=add-category");
                 exit;
             }
