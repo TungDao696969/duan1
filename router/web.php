@@ -109,6 +109,31 @@
                 $productController->addProduct();
                 break;
             }
+            case 'add-post-product': {
+                $productController = new ProductController();
+                $productController->addPostProduct();
+                break;
+            }
+            case 'delete-product': {
+                $productController = new ProductController();
+                $productController->deleteProduct();
+                break;
+            }
+            case 'update-product': {
+                $productController = new ProductController();
+                $productController->updateProduct();
+                break;
+            }
+            case 'update-post-product': {
+                $productController = new ProductController();
+                $productController->updatePostProduct();
+                break;
+            }
+            case 'show-product': {
+                $productController = new ProductController();
+                $productController->showProduct();
+                break;
+            }
             default: {
                 $homeController = new HomeController();
                 $homeController->__dashboard();

@@ -58,7 +58,6 @@ class UserController{
             header("location: " . BASE_URL . "?role=admin&act=all-user" );
             exit;
         }
-        $id = $_GET['id'];
         $userModel = new UserModel();
         $user = $userModel->getUserByID();
         if(!$user) {
@@ -100,13 +99,10 @@ class UserController{
                         $destPath = "";
                     }
                     // xoa anh cu
-                    if (!empty($user->image) && file_exists($user->image)) {
-                        unlink($user->image); // Xóa ảnh cũ nếu tồn tại
-                    }
+                    unlink($user->image);
                 }
             }
             
-
             $userModel = new UserModel();
             $message = $userModel->updateUsertoDB($destPath);
 
@@ -122,39 +118,6 @@ class UserController{
         }
     }
 
-    // public function deleteUser() {
-    //     if (!isset($_GET['id']) ) {
-    //         $_SESSION['message'] = "Vui lòng chọn người dùng cần xóa";
-    //         header("location: " . BASE_URL . "?role=admin&act=all-user");
-    //         exit;
-    //     }
-    
-    //     $userModel = new UserModel();
-    //     $user = $userModel->getUserById();
-
-    //     if (!$user) {
-    //         $_SESSION['message'] = "Người dùng không tồn tại.";
-    //         header("location: " . BASE_URL . "?role=admin&act=all-user");
-    //         exit;
-    //     }
-        
-    //     // Xóa ảnh của người dùng (nếu có)
-    //     if ($user->image !== "" && $user->image !== null && file_exists($user->image)) {
-    //         unlink($user->image);
-    //     }
-    
-    //     $message = $userModel->deleteUser();
-    
-    //     if ($message) {
-    //         $_SESSION['message'] = "Xóa thành công";
-    //         header("location: " . BASE_URL . "?role=admin&act=all-user");
-    //         exit;
-    //     } else {
-    //         $_SESSION['message'] = "Xóa không thành công";
-    //         header("location: " . BASE_URL . "?role=admin&act=all-user");
-    //         exit;
-    //     }
-    // }
 
     public function showUser() {
         if(!isset($_GET['id']) || empty($_GET['id'])){
@@ -166,5 +129,40 @@ class UserController{
         $user = $userModel->getUserById();
 
         include 'app/Views/Admin/show-user.php';
+    }
+
+    public function deleteUser() {
+        if (!isset($_GET['id']) || empty($_GET['id'])) {
+            $_SESSION['message'] = "Vui lòng chọn user cần xóa";
+            header("location: " . BASE_URL . "?role=admin&act=all-user");
+            exit;
+        }
+    
+        $id = $_GET['id'];
+        $userModel = new UserModel();
+        $user = $userModel->getUserById();
+    
+        if (!$user) {
+            $_SESSION['message'] = "Không tìm thấy người dùng";
+            header("location: " . BASE_URL . "?role=admin&act=all-user");
+            exit;
+        }
+    
+        // Xóa ảnh nếu tồn tại
+        if (!empty($user->image) && file_exists($user->image)) {
+            unlink($user->image);
+        }
+    
+        $isDeleted = $userModel->deleteUserById($id);
+    
+        if ($isDeleted) {
+            $_SESSION['message'] = "Xóa người dùng thành công";
+            header("location: " . BASE_URL . "?role=admin&act=all-user");
+            exit;
+        } else {
+            $_SESSION['message'] = "Xóa người dùng không thành công";
+            header("location: " . BASE_URL . "?role=admin&act=all-user");
+            exit;
+        }
     }
 }

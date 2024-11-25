@@ -88,55 +88,52 @@
                                     </ul>
                                 </div> -->
                                 <!-- add-new-user -->
-                                <form action="<?= BASE_URL ?>?role=admin&act=add-post-product" class="form-add-new-user form-style-2" method="post" enctype="multipart/form-data">
+                                <form action="" class="form-add-new-user form-style-2" method="post" >
                                     <div class="wg-box">
-                                        <?php if(isset($_SESSION['massage'])){
-                                            echo "<p>".$_SESSION['massage']."</p>";
-                                            unset($_SESSION['massage']);
-                                        }
-                                        // if (isset($_SESSION['error'])) {
-                                        //     echo "<p>" . $_SESSION['error'] . "</p>";
-                                        //     unset($_SESSION['error']);
-                                        // }
-                                         ?>
+                                        
                                         <div class="right flex-grow">
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="name">Name</div>
-                                                <input class="flex-grow" type="text" id="name" placeholder="Name" name="name" >
+                                                <input class="flex-grow" type="text" id="name" placeholder="Name" name="name" value="<?= $product->name?>" readonly>
                                             </fieldset>
 
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="category">Danh muc</div>
                                                 <select name="category" id="category">
                                                     <?php foreach ($listCategory as $key => $value): ?>
-                                                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                                                        <option value="<?= $value->id ?>"
+                                                            <?php 
+                                                                if($product->category_id == $value->id):?> selected
+                                                        
+                                                            <?php endif?>><?= $value->name ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </fieldset>
 
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="price">Price</div>
-                                                <input class="flex-grow" type="text" id="price" placeholder="Price" name="price" >
+                                                <input class="flex-grow" type="text" id="price" placeholder="Price" name="price" value="<?= $product->price?>" readonly>
                                             </fieldset>
 
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="price-sale">Price Sale</div>
-                                                <input class="flex-grow" type="text" id="price-sale" placeholder="Price Sale" name="price-sale" >
+                                                <input class="flex-grow" type="text" id="price-sale" placeholder="Price Sale" name="price-sale" value="<?= $product->price_sale?>" readonly>
                                             </fieldset>
 
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="stock">Stock</div>
-                                                <input class="flex-grow" type="text" id="stock" placeholder="Stock" name="stock" >
+                                                <input class="flex-grow" type="text" id="stock" placeholder="Stock" name="stock" value="<?= $product->stock ?>" readonly>
                                             </fieldset>
 
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="image_main">Image Main</div>
-                                                <input class="flex-grow" type="file" id="image_main" placeholder="Image Main" name="image_main"  accept="image./*">
+                                                <img src="<?= $product->image_main ?>" alt="" srcset="" width="50px">
+                                                <input class="flex-grow" type="file" id="image_main" placeholder="Image Main" name="image_main"  accept="image./*" readonly>
                                             </fieldset>
 
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="description">Description</div>
-                                                <textarea id="description" placeholder="Description" name="description" class="flex-grow"></textarea>
+                                                <textarea id="description" placeholder="Description" name="description" class="flex-grow" readonly><?= $product->description ?></textarea>
                                             </fieldset>
                                             
                                             <fieldset class="name mb-24">
@@ -147,9 +144,6 @@
                                                 </div>
                                             </fieldset>
                                             <hr>
-                                    <div class="bot">
-                                        <button class="tf-button w180" type="submit">Them moi</button>
-                                    </div>
 
                                 </form>
                                 <!-- /add-new-user -->
@@ -181,16 +175,32 @@
     <script defer src="assets/Admin/js/main.js"></script>
     <script>
         $(".block-image").empty();
+        <?php if(count($listProductImage)> 0): ?>
+            let UI = "";
+            <?php foreach ($listProductImage as $key => $value): ?>
+                UI = `
+                <div class="mt-5 mb-8">
+                    <p>Hinh anh</p>
+                    <img src="<?= $value->image ?>" width="50px">
+                    <div class="d-flex">
+                        <input type="file" class="form-control" name ="image[]" accept="image/*">
+                        <button class = "btn-sm btn btn-danger btn -delete">Xoa</button>
+                    </div>             
+                </div>
+            `;
+            $(".block-image").append(UI)
+            <?php endforeach; ?>
+        <?php endif ?>
         $("#btnAddImage").click(function(e){
             e.preventDefault();
             let UI = `
-            <div class="mt-5 mb-8">
-                <p>Hinh anh</p>
-                <div class="d-flex">
-                    <input type="file" class="form-control" name ="image[]" accept="image/*">
-                    <button class = "btn-sm btn btn-danger btn -delete">Xoa</button>
-                </div>             
-            </div>
+                <div class="mt-5 mb-8">
+                    <p>Hinh anh</p>
+                    <div class="d-flex">
+                        <input type="file" class="form-control" name ="image[]" accept="image/*">
+                        <button class = "btn-sm btn btn-danger btn -delete">Xoa</button>
+                    </div>             
+                </div>
             `;
             $(".block-image").append(UI)
 

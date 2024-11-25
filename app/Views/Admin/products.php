@@ -159,24 +159,24 @@
                                                     
                                                         <?php if($value->price_sale !== null){
                                                             echo "-";
-                                                            echo isset($value->price) ? number_format($value->price, 0, ',', '.') . ' VNĐ' : 'Không có giá';
+                                                            echo isset($value->price_sale) ? number_format($value->price_sale, 0, ',', '.') . ' VNĐ' : 'Không có giá';
                                                         }  ?> 
                                                     </div>
                                                     <div class="body-text text-main-dark mt-4"><?= $value->stock ?></div>
 
                                                     <div class="list-icon-function">
                                                         <div class="item eye">
-                                                        <a href="<?= BASE_URL ?>?role=admin&act=show-user&id=<?= $value->id ?>">
+                                                        <a href="<?= BASE_URL ?>?role=admin&act=show-product&id=<?= $value->id ?>">
                                                             <i class="icon-eye"></i>
                                                         </a>
                                                         </div>
                                                         <div class="item edit">
-                                                           <a href="<?= BASE_URL ?>?role=admin&act=update-user&id=<?= $value->id ?>">
+                                                           <a href="<?= BASE_URL ?>?role=admin&act=update-product&id=<?= $value->id ?>">
                                                             <i class="icon-edit-3"></i>
                                                            </a>
                                                         </div>
                                                         <div class="item trash">
-                                                            <a href="<?= BASE_URL ?>?role=admin&act=delete-user&id=<?= $value->id ?>">
+                                                            <a href="<?= BASE_URL ?>?role=admin&act=delete-product&id=<?= $value->id ?>">
                                                                 <i class="icon-trash-2"></i>
                                                             </a>
                                                         </div>
