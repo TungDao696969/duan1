@@ -9,7 +9,6 @@
             // $_POST['password'];
             $homeModel = new HomeModel();
             $dataUsers = $homeModel->checkLogin();
-            // var_dump($dataUsers);
             if ($dataUsers) {
                 $_SESSION['users'] = [
                     'id' => $dataUsers->id,
