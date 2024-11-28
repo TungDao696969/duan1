@@ -6,8 +6,10 @@ include 'app/Models/Admin/HomeModel.php';
 include 'app/Models/Admin/UserModel.php';
 include 'app/Models/Admin/CategoryModel.php';
 include 'app/Models/Admin/ProductModel.php';
+
 include 'app/Models/Users/CategoryUserModel.php';
 include 'app/Models/Users/ProductUserModel.php';
+include 'app/Models/Users/LoginModel.php';
 
 include 'app/Controllers/Admin/ControllerAdmin.php';
 include 'app/Controllers/Admin/HomeController.php';
