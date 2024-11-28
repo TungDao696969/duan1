@@ -9,26 +9,7 @@
         public function addCategory() {
             include 'app/Views/Admin/add-category.php';
         }
-        // public function addPostCategory() {
-        //     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //         header("location: " . BASE_URL . "?role=admin&act=add-category" );
-        //         exit;
-                
-        //     }
-        //     $categoryModel = new CategoryModel();
-        //     $message = $categoryModel->addCategory();
-
-        //     if ($message) {
-        //         $_SESSION['message'] = "Them moi thanh cong";
-        //             header("location: " . BASE_URL . "?role=admin&act=all-category" );
-        //             exit;
-        //     }else {
-        //         $_SESSION['message'] = "Them moi khong thanh cong";
-        //         header("location: " . BASE_URL . "?role=admin&act=add-category" );
-        //         exit;
-        //     }
-        // }
-
+    
         public function addPostCategory() {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Đảm bảo xử lý trước khi xuất HTML
