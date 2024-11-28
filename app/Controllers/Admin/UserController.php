@@ -69,56 +69,60 @@ class UserController{
     }
 
     public function updatePostUser() {
-        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if(!isset($_GET['id'])){
-                $_SESSION['message'] = "Vui long chon user can sua";
+                $_SESSION['message'] = "Vui lòng chọn user cần sửa";
                 header("location: " . BASE_URL . "?role=admin&act=all-user" );
                 exit;
             }
             
             $userModel = new UserModel();
-            $user = $userModel->getUserByID();
-            // them anh
+            $user = $userModel->getUserByID($_GET['id']);
+            
+            if (!$user) {
+                $_SESSION['message'] = "Không tìm thấy người dùng";
+                header("location: " . BASE_URL . "?role=admin&act=all-user" );
+                exit;
+            }
+            
+            // Xử lý ảnh
             $uploadDir = 'assets/Admin/upload/';
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-            $destPath = $user->image;
+            $destPath = $user->image; // Giữ ảnh cũ nếu không có ảnh mới
             if (!empty($_FILES['image']['name'])) {
                 $fileTmPath = $_FILES['image']['tmp_name'];
                 $fileType = mime_content_type($fileTmPath);
                 $fileName = basename($_FILES['image']['name']);
                 $fileExtention = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-
+    
                 $newFileName = uniqid() . '.' . $fileExtention;
-
-
+    
                 if (in_array($fileType, $allowedTypes)){
                     $destPath = $uploadDir . $newFileName;
-                    if(!move_uploaded_file($fileTmPath, $destPath)) {
-
-                        $destPath = "";
+                    if(move_uploaded_file($fileTmPath, $destPath)) {
+                        // Xóa ảnh cũ nếu upload thành công
+                        if($user->image && file_exists($user->image)) {
+                            unlink($user->image);
+                        }
+                    } else {
+                        $destPath = $user->image; // Giữ lại ảnh cũ nếu upload thất bại
                     }
-                    // xoa anh cu
-                    unlink($user->image);
                 }
             }
             
-            $userModel = new UserModel();
             $message = $userModel->updateUsertoDB($destPath);
-
+    
             if ($message) {
-                $_SESSION['message'] = "Chinh sua thanh cong";
-                    header("location: " . BASE_URL . "?role=admin&act=all-user" );
-                    exit;
-            }else {
-                $_SESSION['message'] = "Chinh sua khong thanh cong";
-                header("location: " . BASE_URL . "?role=admin&act=update-user&id" . $_GET['id'] );
-                exit;
+                $_SESSION['message'] = "Chỉnh sửa thành công";
+                header("location: " . BASE_URL . "?role=admin&act=all-user" );
+            } else {
+                $_SESSION['message'] = "Chỉnh sửa không thành công";
+                header("location: " . BASE_URL . "?role=admin&act=update-user&id=" . $_GET['id'] );
             }
+            exit;
         }
     }
-
-
+    
     public function showUser() {
         if(!isset($_GET['id']) || empty($_GET['id'])){
             $_SESSION['message'] = "Vui long chon user can xoa";
