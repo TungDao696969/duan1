@@ -34,6 +34,21 @@
                 $loginController->postRegister();
                 break;
             }
+            case 'my-account'; {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->myAccount();
+                break;
+            }
+            case 'account-detail'; {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->accountDetail();
+                break;
+            }
+            case 'update-account'; {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->accountUpdate();
+                break;
+            }
         }
     }else{
         switch($act) {

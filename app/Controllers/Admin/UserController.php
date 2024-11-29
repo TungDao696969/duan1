@@ -11,9 +11,27 @@ class UserController{
         include 'app/Views/Admin/add-user.php';
     }
 
+    public function checkValidate() {
+        $name = $_POST['name'] ?? null;
+        $email = $_POST['email'] ?? null;
+        $address = $_POST['address'] ?? null;
+        $phone = $_POST['phone'] ?? null;
+        $role = $_POST['role'] ?? null;
+
+        if($name != "" && $email != "" && $address != "" && $phone != "" && $role != "") {
+            return true;
+        } else {
+            $_SESSION['error'] = "Bạn nhập thiếu thông tin";
+            return false;
+        }
+    }
+
     public function addPostUser() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+            if(!$this->checkValidate()) {
+                header("location: " . BASE_URL > "?role=admin&act=add-user");
+                exit;
+            }
             // them anh
             $uploadDir = 'assets/Admin/upload/';
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];

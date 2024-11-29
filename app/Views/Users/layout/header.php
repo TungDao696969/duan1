@@ -590,7 +590,7 @@
                             <?php if(isset($_SESSION['users'])): ?>  
                                 <li class="nav-account dropdown"><a href="#"  class="nav-icon-item dropdown-toggle" data-bs-toggle="dropdown"><i class="icon icon-account"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Tài khoản</a></li>
+                                        <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=my-account">Tài khoản</a></li>
                                         <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=logout">Đăng xuất</a></li>
                                     </ul>
                                 </li>     

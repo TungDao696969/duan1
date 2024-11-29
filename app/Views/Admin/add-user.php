@@ -88,25 +88,30 @@
                                     </ul>
                                 </div> -->
                                 <!-- add-new-user -->
+                               
                                 <form action="<?= BASE_URL ?>?role=admin&act=post-add-user" class="form-add-new-user form-style-2" method="post" enctype="multipart/form-data">
                                     <div class="wg-box">
-                                        <?php if(isset($_SESSION['massage'])){
+                                    <?php if(isset($_SESSION['massage'])){
                                             echo "<p>".$_SESSION['massage']."</p>";
                                             unset($_SESSION['massage']);
                                         }
+                                        // if (isset($_SESSION['error'])) {
+                                        //     echo "<p>" . $_SESSION['error'] . "</p>";
+                                        //     unset($_SESSION['error']);
+                                        // }
                                          ?>
                                         <div class="right flex-grow">
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="name">Name</div>
-                                                <input class="flex-grow" type="text" id="name" placeholder="Name" name="name" tabindex="0" value="" aria-required="true" required="">
+                                                <input class="flex-grow" type="text" id="name" placeholder="Name" name="name" tabindex="0" value="" >
                                             </fieldset>
                                             <fieldset class="email mb-24">
                                                 <div class="body-title mb-10" for="email">Email</div>
-                                                <input class="flex-grow" type="email" id="email" placeholder="Email" name="email" tabindex="0" value="" aria-required="true" required="">
+                                                <input class="flex-grow" type="email" id="email" placeholder="Email" name="email" tabindex="0" value="" aria-required="true" >
                                             </fieldset>
                                             <fieldset class="password mb-24">
                                                 <div class="body-title mb-10">Password</div>
-                                                <input class="password-input" type="password" id="password" placeholder="Password" name="password" tabindex="0" value="" aria-required="true" required="">
+                                                <input class="password-input" type="password" id="password" placeholder="Password" name="password" tabindex="0" value="" aria-required="true" >
                                                 <span class="show-pass">
                                                     <i class="icon-eye view"></i>
                                                     <i class="icon-eye-off hide"></i>
@@ -114,15 +119,15 @@
                                             </fieldset>
                                             <fieldset class="address mb-24">
                                                 <div for="address" class="body-title mb-10">Address</div>
-                                                <input class="flex-grow" type="text" id="address" placeholder="Address" name="address" tabindex="0" value="" aria-required="true" required="">
+                                                <input class="flex-grow" type="text" id="address" placeholder="Address" name="address" tabindex="0" value="" aria-required="true" >
                                             </fieldset>
                                             <fieldset class="phone mb-24">
                                                 <div for="phone" class="body-title mb-10">Phone</div>
-                                                <input class="flex-grow" type="text" id="phone" placeholder="Phone" name="phone" tabindex="0" value="" aria-required="true" required="">
+                                                <input class="flex-grow" type="text" id="phone" placeholder="Phone" name="phone" tabindex="0" value="" aria-required="true" >
                                             </fieldset>
                                             <fieldset class="image mb-24">
                                                 <div for="image" class="body-title mb-10">Anh</div>
-                                                <input class="flex-grow" type="file" id="image" name="image" tabindex="0" value="" aria-required="true" required="" accept="image/*">
+                                                <input class="flex-grow" type="file" id="image" name="image" tabindex="0" value="" aria-required="true" accept="image/*">
                                             </fieldset>
                                             <fieldset class="role mb-24">
                                                 <div for="role" class="body-title mb-10">Role</div>
@@ -136,7 +141,7 @@
                                     </div>
                                    
                                     <div class="bot">
-                                        <button class="tf-button w180" type="submit">Save</button>
+                                        <button class="tf-button w180" type="submit">Thêm mới</button>
                                     </div>
 
                                 </form>

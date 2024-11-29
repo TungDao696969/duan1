@@ -67,8 +67,8 @@
                         <div class="main-content-inner">
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
-                                <!-- <div class="flex items-center flex-wrap justify-between gap20 mb-30">
-                                    <h3>Add New User</h3>
+                                <div class="flex items-center flex-wrap justify-between gap20 mb-30">
+                                    <h3>Add New Product</h3>
                                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                                         <li>
                                             <a href="index.html"><div class="text-tiny">Dashboard</div></a>
@@ -83,11 +83,12 @@
                                             <i class="icon-chevron-right"></i>
                                         </li>
                                         <li>
-                                            <div class="text-tiny">Add New User</div>
+                                            <div class="text-tiny">Add New Product</div>
                                         </li>
                                     </ul>
-                                </div> -->
+                                </div>
                                 <!-- add-new-user -->
+                                 
                                 <form action="<?= BASE_URL ?>?role=admin&act=add-post-product" class="form-add-new-user form-style-2" method="post" enctype="multipart/form-data">
                                     <div class="wg-box">
                                         <?php if(isset($_SESSION['massage'])){
