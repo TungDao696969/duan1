@@ -70,11 +70,11 @@
                                 <div class="swiper-slide" lazy="true">
                                     <div class="collection-item style-left hover-img">
                                         <div class="collection-inner">
-                                            <a href="shop-default.html" class="collection-image img-style">
+                                            <a href="<?= BASE_URL?>?act=shop&category_id=<?=$value->id?>" class="collection-image img-style">
                                                 <img class="lazyload" data-src="assets/Users/images/collections/collection-17.jpg" src="assets/Users/images/collections/collection-17.jpg" alt="collection-img">
                                             </a>
                                             <div class="collection-content">
-                                                <a href="shop-default.html" class="tf-btn collection-title hover-icon fs-15"><span><?= $value->name ?></span><i class="icon icon-arrow1-top-left"></i></a>
+                                                <a href="<?= BASE_URL?>?act=shop&category_id=<?=$value->id?>" class="tf-btn collection-title hover-icon fs-15"><span><?= $value->name ?></span><i class="icon icon-arrow1-top-left"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -133,7 +133,7 @@
                         </div>
                         <div class="card-product-info">
                             <a href="product-detail.html" class="title link"><?= $value->name ?></a>
-                            <div class="" style="display: flex">
+                            <div style="display: flex">
                             <span class="price"><?= number_format($value->price) ?> VNĐ</span>
                             <?php if($value->price_sale !== null): ?>
                             <span class="price price-sale"> <?= number_format($value->price_sale) ?></span>

@@ -12,5 +12,13 @@
             $result = $query->fetchAll();
             return $result;
         }
+         public function getCategoryById($id){
+            $sql = "select * from categores where id = :id";
+            $stmt = $this->db->pdo->prepare($sql);
+            $stmt->bindParam(':id',$id);
+            $stmt->execute();
+            $result = $stmt->fetch();
+            return $result;
+        }
 }
 ?>
