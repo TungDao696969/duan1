@@ -9,7 +9,7 @@
                         </a>
                     </div>
                     <div class="col-xl-3 col-md-4 col-6">
-                        <a href="" class="logo-header">
+                        <a href="index.php" class="logo-header">
                             <img src="assets/Users/images/logo/logo.svg" alt="logo" class="logo">
                         </a>
                     </div>
