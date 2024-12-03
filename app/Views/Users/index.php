@@ -70,11 +70,11 @@
                                 <div class="swiper-slide" lazy="true">
                                     <div class="collection-item style-left hover-img">
                                         <div class="collection-inner">
-                                            <a href="shop-default.html" class="collection-image img-style">
+                                            <a href="<?= BASE_URL?>?act=shop&category_id=<?=$value->id?>" class="collection-image img-style">
                                                 <img class="lazyload" data-src="assets/Users/images/collections/collection-17.jpg" src="assets/Users/images/collections/collection-17.jpg" alt="collection-img">
                                             </a>
                                             <div class="collection-content">
-                                                <a href="shop-default.html" class="tf-btn collection-title hover-icon fs-15"><span><?= $value->name ?></span><i class="icon icon-arrow1-top-left"></i></a>
+                                                <a href="<?= BASE_URL?>?act=shop&category_id=<?=$value->id?>" class="tf-btn collection-title hover-icon fs-15"><span><?= $value->name ?></span><i class="icon icon-arrow1-top-left"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@
                     <?php foreach($listProduct as $key => $value): ?>
                         <div class="card-product fl-item">
                         <div class="card-product-wrapper">
-                            <a href="product-detail.html" class="product-img">
+                            <a href="<?= BASE_URL?>?act=product-detail&product_id=<?=$value->id?>" class="product-img">
                                 <img class="lazyload img-product" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
                                 <img class="lazyload img-hover" data-src="assets/Users/images/products/white-1.jpg" src="assets/Users/images/products/white-1.jpg" alt="image-product">
                             </a>
