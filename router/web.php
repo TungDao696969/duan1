@@ -79,6 +79,21 @@
                 $dashBoardController->shoppingCart();
                 break;
             }
+            case 'check-out': {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->checkout();
+                break;
+            }
+            case 'submit-check-out': {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->submitCheckout();
+                break;
+            }
+            case 'show-order': {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->showOrrder();
+                break;
+            }
         }
     }else{
         switch($act) {

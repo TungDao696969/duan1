@@ -591,6 +591,8 @@
                                 <li class="nav-account dropdown"><a href="#"  class="nav-icon-item dropdown-toggle" data-bs-toggle="dropdown"><i class="icon icon-account"></i></a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=my-account">Tài khoản</a></li>
+                                        <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=shopping-cart">Giỏ hàng</a></li>
+                                        <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=show-order">Đơn hàng</a></li>
                                         <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=logout">Đăng xuất</a></li>
                                     </ul>
                                 </li>     

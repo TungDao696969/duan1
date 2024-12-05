@@ -155,4 +155,33 @@ class DashboardController {
         include 'app/Views/Users/shopping-cart.php';
         
     }
+
+    public function checkout(){
+        $userModel = new UserModel2();
+        $currentUser = $userModel->getCurrentUser();
+        $cartModel = new CartUserModel();
+        $products = $cartModel->showCartModel();
+        include 'app/Views/Users/check-out.php';
+    }
+
+    public function submitCheckout(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $cartModel = new CartUserModel();
+            $products = $cartModel->showCartModel();
+
+            $orderModel = new OrderUserModel();
+            $addOrder = $orderModel->order($products);
+            if($addOrder) {
+                $cartModel->deleteCartDetail();
+
+                header("Location: " . BASE_URL);
+            }
+        }
+    }
+
+    public function showOrrder(){
+        $orderModel = new OrderUserModel();
+        $orders = $orderModel->getAllOrrder();
+        include 'app/Views/Users/show-order.php';
+    }
 }
