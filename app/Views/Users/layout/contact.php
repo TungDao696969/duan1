@@ -1,4 +1,4 @@
-<div class="tf-top-bar bg_white line">
+<!-- <div class="tf-top-bar bg_white line">
 <div class="px_15 lg-px_40">
                 <div class="tf-top-bar_wrap grid-3 gap-30 align-items-center">
                     <ul class="tf-top-bar_item tf-social-icon d-flex gap-10">
@@ -47,4 +47,4 @@
                     </div>
                 </div>
             </div>
-            </div>
+            </div> -->

@@ -98,7 +98,7 @@
         <section class="flat-spacing-5 pt_0 flat-seller">
             <div class="container">
                 <div class="flat-title">
-                    <span class="title wow fadeInUp" data-wow-delay="0s">Best Seller</span>
+                    <span class="title wow fadeInUp" data-wow-delay="0s">Hot product</span>
                     <p class="sub-title wow fadeInUp" data-wow-delay="0s">Shop the Latest Styles: Stay ahead of the curve with our newest arrivals</p>
                 </div>
                 <div class="grid-layout loadmore-item wow fadeInUp" data-wow-delay="0s" data-grid="grid-4">

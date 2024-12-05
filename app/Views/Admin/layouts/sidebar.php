@@ -108,20 +108,11 @@
                                                         </a>
                                                         <ul class="sub-menu">
                                                             <li class="sub-menu-item">
-                                                                <a href="oder-list.html" class="">
+                                                                <a href="<?= BASE_URL ?>?role=admin&act=show-order" class="">
                                                                     <div class="text">Order list</div>
                                                                 </a>
                                                             </li>
-                                                            <li class="sub-menu-item">
-                                                                <a href="oder-detail.html" class="">
-                                                                    <div class="text">Order detail</div>
-                                                                </a>
-                                                            </li>
-                                                            <li class="sub-menu-item">
-                                                                <a href="oder-tracking.html" class="">
-                                                                    <div class="text">Order tracking</div>
-                                                                </a>
-                                                            </li>
+                                                            
                                                         </ul>
                                                     </li>
                                                     <li class="menu-item has-children

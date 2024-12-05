@@ -184,4 +184,16 @@ class DashboardController {
         $orders = $orderModel->getAllOrrder();
         include 'app/Views/Users/show-order.php';
     }
+
+    public function showOrderDetail(){
+        $orderModel = new OrderUserModel();
+        $order_detail = $orderModel->getOrderDetail();
+        include 'app/Views/Users/show-order-detail.php';
+    }
+
+    public function cancelOrder(){
+        $orderModel = new OrderUserModel();
+        $orderModel->cancelOrderModel();
+        header("Location: " . BASE_URL . "?act=show-order");
+    }
 }

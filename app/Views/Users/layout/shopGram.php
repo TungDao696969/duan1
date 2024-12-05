@@ -1,4 +1,4 @@
-<section class="flat-spacing-7">
+<!-- <section class="flat-spacing-7">
             <div class="container">
                 <div class="flat-title wow fadeInUp" data-wow-delay="0s">
                     <span class="title">Shop Gram</span>
@@ -52,4 +52,4 @@
                     <div class="sw-dots sw-pagination-gallery justify-content-center"></div>
                 </div>
             </div>
-        </section>
+        </section> -->

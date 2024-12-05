@@ -1,4 +1,4 @@
-<section class="flat-spacing-6">
+<!-- <section class="flat-spacing-6">
             <div class="flat-title wow fadeInUp" data-wow-delay="0s">
                 <span class="title">Shop the look</span>
                 <p class="sub-title">Inspire and let yourself be inspired, from one unique fashion to another.</p>
@@ -101,4 +101,4 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->

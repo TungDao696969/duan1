@@ -2,7 +2,7 @@
             <div class="container">
                 <div class="wrap-carousel wrap-mobile">
                     <div dir="ltr" class="swiper tf-sw-mobile" data-preview="1" data-space="15">
-                        <div class="swiper-wrapper wrap-iconbox">
+                        <!-- <div class="swiper-wrapper wrap-iconbox">
                             <div class="swiper-slide">
                                 <div class="tf-icon-box style-border-line text-center">
                                     <div class="icon">
@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
     
                     </div>
                     <div class="sw-dots style-2 sw-pagination-mb justify-content-center"></div>

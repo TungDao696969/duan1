@@ -1,4 +1,4 @@
-<section class="flat-spacing-5 pt_0 flat-testimonial">
+<!-- <section class="flat-spacing-5 pt_0 flat-testimonial">
             <div class="container">
                 <div class="flat-title wow fadeInUp" data-wow-delay="0s">
                     <span class="title">Happy Clients</span>
@@ -146,4 +146,4 @@
                     <div class="sw-dots style-2 sw-pagination-testimonial justify-content-center"></div>
                 </div>
             </div>
-        </section>
+        </section> -->

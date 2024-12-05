@@ -94,6 +94,16 @@
                 $dashBoardController->showOrrder();
                 break;
             }
+            case 'show-order-detail': {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->showOrderDetail();
+                break;
+            }
+            case 'cancel-order': {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->cancelOrder();
+                break;
+            }
         }
     }else{
         switch($act) {
@@ -223,6 +233,21 @@
             case 'show-product': {
                 $productController = new ProductController();
                 $productController->showProduct();
+                break;
+            }
+            case 'show-order': {
+                $orderController = new OrderController();
+                $orderController->showOrder();
+                break;
+            }
+            case 'show-order-detail': {
+                $orderController = new OrderController();
+                $orderController->showOrderDetail();
+                break;
+            }
+            case 'order-change-status': {
+                $orderController = new OrderController();
+                $orderController->changeStatus();
                 break;
             }
             default: {

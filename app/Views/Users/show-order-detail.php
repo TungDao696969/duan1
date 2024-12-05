@@ -49,7 +49,7 @@
         <!-- /Header -->
         <div class="tf-page-title style-2">
             <div class="container-full">
-                <div class="heading text-center">Order</div>
+                <div class="heading text-center">Order Detail</div>
             </div>
         </div>
         
@@ -59,38 +59,27 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Address</th>
+                        <th>Product name</th>
+                        <th>Product Image</th>
+                        <th>Quantity</th>
+                        <th>Product price</th>
                         <th>Total</th>
-                        <th>Status</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($orders as $key => $value): ?>
+                <?php foreach($order_detail as $key => $value): ?>
                     <tr>
                         <td class="text-center"><?= $key + 1 ?></td>
                         <td class="text-center"><?= $value->name ?></td>
-                        <td class="text-center"><?= $value->phone ?></td>
-                        <td class="text-center"><?= $value->address ?></td>
-                        <td class="text-center"><?= number_format($value->total) ?>VNĐ</td>
-                        <td class="text-center"><?php
-                            if($value->status == 'pending'):?>
-                            <span class="badge text-bg-warning">Chờ xử lý</span>
-                            <?php elseif ($value->status == 'completed'): ?>
-                                <span class="badge text-bg-success">Đã hoàn thành</span>
-                                <?php elseif ($value->status == 'canceled'): ?>
-                                    <span class="badge text-bg-danger">Đã hủy</span>
-                            <?php endif; ?>
+                        <td class="text-center">
+                            <img src="<?= $value->image_main ?>" alt="" srcset="" width="50">
                         </td>
-                        <td>
-                            <a href="<?= BASE_URL ?>?act=show-order-detail&order_id=<?= $value->id ?>" class="btn btn-success text-center">Order Detail</a>
-                            <?php
-                            if($value->status == 'pending'):?>
-                            <a href="<?= BASE_URL ?>?act=cancel-order&order_id=<?= $value->id ?>" class="btn btn-danger text-center" onclick="return confirm('Bạn chắc có muốn hủy đơn không')">Cancel</a>
-                            <?php endif; ?>
+                        <td class="text-center"><?= $value->quantity ?></td>
+                        <td class="text-center"><?= number_format($value->price) ?>VNĐ</td>
+                        <td class="text-end">
+                            <?= number_format($value->total) ?> VNĐ
                         </td>
+                       
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
