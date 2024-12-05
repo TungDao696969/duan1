@@ -107,7 +107,7 @@
                         <div class="card-product-wrapper">
                             <a href="<?= BASE_URL?>?act=product-detail&product_id=<?=$value->id?>" class="product-img">
                                 <img class="lazyload img-product" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
-                                <img class="lazyload img-hover" data-src="assets/Users/images/products/white-1.jpg" src="assets/Users/images/products/white-1.jpg" alt="image-product">
+                                <img class="lazyload img-hover" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
                             </a>
                             <div class="list-product-btn">
                                 <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
@@ -132,14 +132,14 @@
                             </div>
                         </div>
                         <div class="card-product-info">
-                            <a href="product-detail.html" class="title link"><?= $value->name ?></a>
+                            <a href="<?= BASE_URL ?>?act=product-detail&product_id=<?= $value->id ?>" class="title link"><?= $value->name ?></a>
                             <div class="" style="display: flex">
                             <span class="price"><?= number_format($value->price) ?> VNĐ</span>
                             <?php if($value->price_sale !== null): ?>
                             <span class="price price-sale"> <?= number_format($value->price_sale) ?></span>
                             <?php endif; ?>
                             </div>
-                            <ul class="list-color-product">
+                            <!-- <ul class="list-color-product">
                                 <li class="list-color-item color-swatch active">
                                     <span class="tooltip">Orange</span>
                                     <span class="swatch-value bg_orange-3"></span>
@@ -155,7 +155,7 @@
                                     <span class="swatch-value bg_white"></span>
                                     <img class="lazyload" data-src="assets/Users/images/products/white-1.jpg" src="assets/Users/images/products/white-1.jpg" alt="image-product">
                                 </li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                     <?php endforeach; ?>

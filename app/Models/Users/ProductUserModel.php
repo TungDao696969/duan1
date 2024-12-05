@@ -64,6 +64,28 @@ public function getProductImageById(){
     }
 
 }
+
+    public function getOtherProduct($categoryId, $productId){
+        $sql = "SELECT * FROM `products` WHERE category_id = :category_id and id != :productId";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':category_id', $categoryId);
+        $stmt->bindParam(':productId', $productId);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function getComment($productId){
+        $sql = "SELECT product_comment.*, users.name, users.image 
+                FROM `product_comment` 
+                JOIN users ON product_comment.user_id = users.id 
+                WHERE product_comment.product_id = :product_id";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':product_id', $productId);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
     }
     
+}  
 ?>

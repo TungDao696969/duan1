@@ -59,6 +59,26 @@
                 $dashBoardController->productDetail();
                 break;
             }
+            case 'add-to-cart': {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->addToCart();
+                break;
+            }
+            case 'show-to-cart': {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->showToCart();
+                break;
+            }
+            case 'update-cart': {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->updateToCart();
+                break;
+            }
+            case 'shopping-cart': {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->shoppingCart();
+                break;
+            }
         }
     }else{
         switch($act) {
